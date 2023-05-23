@@ -389,7 +389,7 @@ def main():
             if event.type == pg.KEYDOWN and event.key == pg.K_TAB and score.score >= 50:
                 score.score_up(-50)
                 gravity.add(Gravity(bird, 200, 500))
-            if score.score >= 80 and len(fires) == 0:
+            if score.score >= 10 and len(fires) == 0:
                     fires.add(fire(bird,400))
         screen.blit(bg_img, [0, 0])
 
