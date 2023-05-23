@@ -329,7 +329,7 @@ class Gravity(pg.sprite.Sprite):
         if self.life < 0:
             self.kill()
 
-class fire(pg.sprite.Sprite):
+class fire(pg.sprite.Sprite): 
     "焼野原の追加"
     def __init__(self,bird: Bird,life : int):
          super().__init__()
@@ -436,11 +436,11 @@ def main():
             exps.add(Explosion(bomb, 50))  # 爆発エフェクト
             score.score_up(1)
         
-        if len(pg.sprite.spritecollide(bird, fires, True)) != 0:
-            bird.change_img(10, screen) # こうかとん悲しみエフェクト
+        if len(pg.sprite.spritecollide(bird, fires, True)) != 0:#こうかとんが火（オレンジの四角）に触れたら負け
+            bird.change_img(10, screen) # 焼き鳥の画像
             score.update(screen)
             text1 = font1.render("grilled chicken", True, (255,64,64))
-            screen.blit(text1, (500,500))
+            screen.blit(text1, (500,500))#火にあたって負けた場合のメッセージ
             pg.display.update()
             time.sleep(2)
             return
@@ -472,8 +472,8 @@ def main():
         exps.draw(screen)
         Shields.update() #防御壁の更新
         Shields.draw(screen) #防御壁の描画
-        fires.update()
-        fires.draw(screen) 
+        fires.update()#焼野原の更新
+        fires.draw(screen) #焼野原の描画
 
         score.update(screen)
         pg.display.update()
